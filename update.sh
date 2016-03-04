@@ -20,6 +20,10 @@ if [ ! -f ~/.zshrc  ]; then
 				echo ".zshrc not found!"
 				exit 1
 fi
+if [ ! -f ~/.i3/config ]; then
+				echo ".i3/config not found!"
+				exit 1
+fi
 
 cp .vimrc ~
 cp .tmux.conf ~
@@ -27,4 +31,5 @@ cp .Xdefaults ~
 sed -i -e 's/%%USER%%/'$1'/g' .zshrc
 cp .zshrc ~
 sed -i -e 's/'$1'/%%USER%%/g' .zshrc
+cp .i3/config ~/.i3/config
 echo "Ready"
