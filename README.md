@@ -1,6 +1,8 @@
 ### Prerequisites
 
-sudo apt-get install compton rxvt-unicode-256color xmonad
+sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev
+
+
 
 #### Vim
 mkdir ~/.vim/tmp/backup

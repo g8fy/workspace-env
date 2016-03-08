@@ -9,6 +9,7 @@ echo -e "ranger -> " $(dpkg -s ranger | grep Version:) "${YELLOW}[1.7.1]${NC}"
 echo -e "Tmux -> " $(dpkg -s tmux | grep Version:) "${YELLOW}[1.9]${NC}"
 echo -e "urxvt -> " $(dpkg -s rxvt-unicode-256color | grep Version:) "${YELLOW}[9.19]${NC}"
 echo -e "Vim -> " $(dpkg -s vim | grep Version:) "${YELLOW}[7.4]${NC}"
+echo -e "xmonad -> " $(dpkg -s xmonad | grep Version:) "${YELLOW}[7.4]${NC}"
 if [ ! -d ~/.vim/bundle ]; 
 then
 				echo -e "${RED}VIM without vundle support!${NC}";
