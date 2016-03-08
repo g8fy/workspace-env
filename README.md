@@ -6,6 +6,7 @@ This productive enviroment uses the following components:
 - ranger
 - zsh
 - urxvt
+- tmux
 - vim
 
 With check_enviroment.sh you get your actual installed components.
