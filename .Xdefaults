@@ -55,6 +55,11 @@ URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          firefox
 
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
 ! Cursor
 URxvt.cursorBlink:          true
 URxvt.cursorColor:          #657b83
@@ -64,6 +69,9 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 
 !!Source http://github.com/altercation/solarized
+
+URxvt.transparent:   true
+URxvt.shading:       20
 
 *background: #141212
 *foreground: #E2DCCD
