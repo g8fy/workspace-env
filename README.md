@@ -1,7 +1,20 @@
+# Productive Enviroment
+
+This productive enviroment uses the following components:
+- xmonad
+- compton
+- ranger
+- zsh
+- urxvt
+- vim
+
+
+With check_enviroment.sh you get your actual installed components.
+
+
 ### Prerequisites
 
-sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev
-
+sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh
 
 
 #### Vim

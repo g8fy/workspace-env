@@ -24,8 +24,6 @@ xterm*utf8Title: true
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
-URxvt.transparent:          false
-URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
@@ -70,8 +68,10 @@ URxvt.pointerBlank:         true
 
 !!Source http://github.com/altercation/solarized
 
-URxvt.transparent:   true
-URxvt.shading:       20
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
+
+
 
 *background: #141212
 *foreground: #E2DCCD

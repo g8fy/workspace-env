@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/%%USER%%/.oh-my-zsh
+  export ZSH=/home/stephan/.oh-my-zsh
 
 # Installation with omzsh
 #rm -fr .oh-my-zsh/
@@ -63,7 +63,7 @@ plugins=(git)
 
 # User configuration
 
- export PATH="/home/%%USER%%/perl5/bin:/home/%%USER%%/.rvm/gems/ruby-1.9.3-p392/bin:/home/%%USER%%/.rvm/gems/ruby-1.9.3-p392@global/bin:/home/%%USER%%/.rvm/rubies/ruby-1.9.3-p392/bin:/home/%%USER%%/.rvm/bin:/home/%%USER%%/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/%%USER%%/.rvm/bin:/home/%%USER%%/.rvm/bin"
+ export PATH="/home/stephan/perl5/bin:/home/stephan/.rvm/gems/ruby-1.9.3-p392/bin:/home/stephan/.rvm/gems/ruby-1.9.3-p392@global/bin:/home/stephan/.rvm/rubies/ruby-1.9.3-p392/bin:/home/stephan/.rvm/bin:/home/stephan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/stephan/.rvm/bin:/home/stephan/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
