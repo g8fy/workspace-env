@@ -10,10 +10,17 @@ This productive enviroment uses the following components:
 
 With check_enviroment.sh you get your actual installed components.
 
+### Addons
+- urxvt perl extension
+- urxvt perl extension font-size 
+- Vundle for VIm
+- oh-my-zsh 
+- Ubuntu Mono Powerline font
+- Bullet-promt theme for zsh
+
 ### Prerequisites
 
 sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim
-
 
 #### Vim
 mkdir ~/.vim/tmp/backup
