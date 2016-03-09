@@ -21,7 +21,7 @@ With check_enviroment.sh you get your actual installed components.
 
 ### Prerequisites
 
-sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim
+sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim xscreensaver
 
 #### Vim
 mkdir ~/.vim/tmp/backup
