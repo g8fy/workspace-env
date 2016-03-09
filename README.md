@@ -1,11 +1,17 @@
 # Productive Enviroment
 
 This productive enviroment uses the following components:
+
+#### Desktop Enviroment
 - xmonad
 - compton
-- ranger
+
+#### Command Line Utilities
 - zsh
 - urxvt
+
+#### Applications
+- ranger
 - tmux
 - vim
 
@@ -19,9 +25,11 @@ With check_enviroment.sh you get your actual installed components.
 - Ubuntu Mono Powerline font
 - Bullet-promt theme for zsh
 
-### Prerequisites
+#### additional goodys :-)
+- wicd-curses
 
-sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim xscreensaver
+### Prerequisites
+sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim hsetroot wicd-curses xscreensaver
 
 #### Vim
 mkdir ~/.vim/tmp/backup
@@ -29,7 +37,6 @@ mkdir ~/.vim/tmp/swap
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #### urxvt
-
 cd ~/.urxvt/ext
 wget https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size
 
