@@ -37,4 +37,4 @@ xterm*ScrollBar: true
 ! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
 
-URxvt.perl-ext-common: font-size
+URxvt.perl-ext-common: font-size,digital-clock
