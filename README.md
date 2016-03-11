@@ -51,3 +51,4 @@ git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-m
 fc-cache -vf
  wget http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme
  mv bullet-train.zsh-theme in $ZSH_CUSTOM/themes/
+
