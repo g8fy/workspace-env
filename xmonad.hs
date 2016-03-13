@@ -24,7 +24,7 @@ main = do
 				, manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = myLayout
          } `additionalKeys`
-        [ ((mod1Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+        [ ((mod1Mask .|. shiftMask, xK_x), spawn "xscreensaver-command -lock")
 				, ((mod1Mask, xK_a), sendMessage MirrorShrink)
  				, ((mod1Mask, xK_z), sendMessage MirrorExpand)
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
