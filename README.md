@@ -1,11 +1,17 @@
 # Productive Enviroment
 
 This productive enviroment uses the following components:
+
+#### Desktop Enviroment
 - xmonad
 - compton
-- ranger
+
+#### Command Line Utilities
 - zsh
 - urxvt
+
+#### Applications
+- ranger
 - tmux
 - vim
 
@@ -23,9 +29,8 @@ With check_enviroment.sh you get your actual installed components.
 - wicd-curses
 - turses
 
-
 ### Prerequisites
-sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim hsetroot wicd-curses turses
+sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim hsetroot wicd-curses xscreensaver turses
 
 #### Vim
 mkdir ~/.vim/tmp/backup
@@ -47,3 +52,4 @@ git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-m
 fc-cache -vf
  wget http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme
  mv bullet-train.zsh-theme in $ZSH_CUSTOM/themes/
+
