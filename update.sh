@@ -23,8 +23,16 @@ fi
 cp .vimrc ~
 cp .tmux.conf ~
 cp .Xdefaults ~
+cp .Xresources ~
+cp .xinitrc ~
 sed -i -e 's/%%USER%%/'$USER'/g' .zshrc
 cp .zshrc ~
 sed -i -e 's/'$USER'/%%USER%%/g' .zshrc
-cp .i3/config ~/.i3/config
+cp xmonad.hs ~/.xmonad/
+cp .compton.conf ~
+cp ranger/rc.conf ~/.config/ranger/rc.conf
+
+
+
+#cp .i3/config ~/.i3/config
 echo "Ready"
