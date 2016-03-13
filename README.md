@@ -21,11 +21,11 @@ With check_enviroment.sh you get your actual installed components.
 
 #### additional goodys :-)
 - wicd-curses
-
+- turses
 
 
 ### Prerequisites
-sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim hsetroot wicd-curses
+sudo apt-get install compton rxvt-unicode-256color xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev ranger zsh vim hsetroot wicd-curses turses
 
 #### Vim
 mkdir ~/.vim/tmp/backup
