@@ -5,8 +5,9 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.ResizableTile
 import System.IO
+import XMonad.Layout.Spacing
 
-myLayout = ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirror tiled ||| Full
+myLayout = smartSpacing 8 $ ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirror tiled ||| Full
   where
      tiled   = Tall nmaster delta ratio
      nmaster = 1
@@ -17,9 +18,11 @@ main = do
     xmonad $ defaultConfig
         { 
         terminal           	 = "urxvtc"
-				, borderWidth        = 0
-        , normalBorderColor  = "#3780be"
-        , focusedBorderColor = "#91c7f5" 
+				, borderWidth        = 1
+        , normalBorderColor  = "black"
+--        , normalBorderColor  = "#3780be"
+        , focusedBorderColor = "grey" 
+--        , focusedBorderColor = "#91c7f5" 
 
 				, manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = myLayout
