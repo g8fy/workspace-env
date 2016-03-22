@@ -8,6 +8,8 @@ import XMonad.Layout.ResizableTile
 import System.IO
 import XMonad.Layout.Spacing
 import XMonad.Actions.GridSelect
+import XMonad.Layout.ShowWName
+import XMonad.Layout.IndependentScreens
 
 myLayout = smartSpacing 8 $ ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirror tiled ||| Full
   where
@@ -26,22 +28,17 @@ greenColorizer = colorRangeFromClassName
    where black = minBound
          white = maxBound
 
-
-main = do
-    xmonad $ defaultConfig
-        { 
-        terminal           	 = "urxvtc"
+conf = defaultConfig {
+        workspaces = myWorkspaces
+        , modMask = mod1Mask
+        , terminal = "urxvtc"
 				, borderWidth        = 1
-        , normalBorderColor  = "black"
---        , normalBorderColor  = "#3780be"
-        , focusedBorderColor = "grey" 
---        , focusedBorderColor = "#91c7f5" 
+        , normalBorderColor  = "grey"
+        , focusedBorderColor = "orange" 
+        , layoutHook  = showWName myLayout
+				 } `additionalKeys` myKeys
 
-				, manageHook = manageDocks <+> manageHook defaultConfig
-        , layoutHook = myLayout
-         } `additionalKeys` myKeys
-      
-myWorkspaces = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces = withScreens 2 ["1","2","3","4","5","6","7","8","9"]
  
 myKeys =
   		[ ((mod1Mask .|. shiftMask, xK_x), spawn "xscreensaver-command -lock")
@@ -52,12 +49,19 @@ myKeys =
 				,((mod1Mask, xK_g), goToSelected  $ gsconfig2 greenColorizer)
       ]
 			++
-      [((m .|. mod1Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
-         | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
+			[
+         -- workspaces are distinct by screen
+        ((m .|. mod1Mask, k), windows $ onCurrentScreen f i)
+          | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
           , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
-			]           
+			]
       ++
-    	[((m .|. mod1Mask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [1,0,2] -- was [0..] *** change to match your screen order ***
+			[
+         -- swap screen order
+        ((m .|. mod1Mask, key), screenWorkspace sc >>= flip whenJust
+        (windows . f))
+        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,1,2]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
-			] 
+			]
+
+main = xmonad conf
