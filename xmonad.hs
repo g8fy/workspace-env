@@ -10,8 +10,9 @@ import XMonad.Layout.Spacing
 import XMonad.Actions.GridSelect
 import XMonad.Layout.ShowWName
 import XMonad.Layout.IndependentScreens
+import XMonad.Layout.NoBorders
 
-myLayout = smartSpacing 8 $ ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirror tiled ||| Full
+myLayout = smartSpacing 8 $ ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirror tiled ||| noBorders Full
   where
      tiled   = Tall nmaster delta ratio
      nmaster = 1
