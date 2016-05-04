@@ -18,7 +18,7 @@
 # ZSH_THEME="miloshadzic"
 # ZSH_THEME="bullet-train"
 ZSH_THEME="agnoster"
-
+setopt no_share_history
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -70,6 +70,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
+bindkey '\e[7~' beginning-of-line
+bindkey '\e[8~' end-of-line
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

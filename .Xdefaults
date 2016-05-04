@@ -68,10 +68,8 @@ URxvt.pointerBlank:         true
 
 !!Source http://github.com/altercation/solarized
 
-urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/c800
-
-
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
 
 *background: #141212
 *foreground: #E2DCCD
