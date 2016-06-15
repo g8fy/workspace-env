@@ -6,14 +6,12 @@ import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Layout.ResizableTile
 import System.IO
---import XMonad.Config.Gnome
 import Data.List
 import XMonad.Layout.Spacing
 import XMonad.Actions.GridSelect
 import XMonad.Layout.ShowWName
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.NoBorders
---import XMonad.Util.NamedScratchpad
 import XMonad.Util.WorkspaceCompare
 
 main = do 
@@ -25,12 +23,12 @@ main = do
 				, borderWidth        = 0
         , normalBorderColor  = "grey"
         , focusedBorderColor = "orange" 
-        , layoutHook  = showWName myLayout
+        , layoutHook  = avoidStruts $ showWName myLayout
 				, logHook     = myLogHook wsBar
 				 } `additionalKeys` myKeys
 
 myConf = defaultConfig {
-  	layoutHook  = showWName myLayout
+	manageHook = manageDocks <+> manageHook defaultConfig
   , workspaces = myWorkspaces
 }
 
@@ -42,8 +40,8 @@ myLayout = smartSpacing 8 $ ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirro
      delta   = 3/100
 
 myLogHook h    = dynamicLogWithPP $ wsPP{ ppOutput = hPutStrLn h }
-myWsBar        = "xmobar"
-wsPP = xmobarPP { ppOrder               = \(ws:l:t:_)   -> [ws,t]
+myWsBar        = "xmobar -x 1"
+wsPP = xmobarPP { ppOrder               = \(ws:l:t:_)   -> [ws]
 							 , ppCurrent = xmobarColor "#f8f8f8" "DodgerBlue4" . wrap " " " "
                , ppVisible = xmobarColor "#f8f8f8" "LightSkyBlue4" . wrap " " " "
                , ppUrgent  = xmobarColor "#f8f8f8" "red4" . wrap " " " " . xmobarStrip
@@ -57,10 +55,6 @@ wsPP = xmobarPP { ppOrder               = \(ws:l:t:_)   -> [ws,t]
                 currentWsIndex w        = case (elemIndex w myWorkspaces) of
                         Nothing         -> "1"
                         Just n          -> show (n+1)
-								--ppScreens = do ws <- gets windowset
-                --      let cv = [W.current ws] ++ W.visible ws
-                --      tags = map (\w -> (show $ fromIntegral $ W.screen w) ++ "." ++ (W.tag $ W.workspace w)) cv
-                --        return $ Just ("\0000" ++ concat (intersperse "\0000" tags)) 
 
 gsconfig2 colorizer = (buildDefaultGSConfig colorizer) { gs_cellheight = 90, gs_cellwidth = 160  }
 greenColorizer = colorRangeFromClassName
