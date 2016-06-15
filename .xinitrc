@@ -7,4 +7,5 @@ xscreensaver -no-splash &
 urxvtd -q -o -f &
 compton &
 ruby ~/bg_setter.rb
-xmonad
+#xmonad
+exec ck-launch-session dbus-launch bash -c "xmonad"

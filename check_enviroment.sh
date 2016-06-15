@@ -10,6 +10,7 @@ echo -e "Tmux -> " $(dpkg -s tmux | grep Version:) "${YELLOW}[1.9]${NC}"
 echo -e "urxvt -> " $(dpkg -s rxvt-unicode-256color | grep Version:) "${YELLOW}[9.19]${NC}"
 echo -e "Vim -> " $(dpkg -s vim | grep Version:) "${YELLOW}[7.4]${NC}"
 echo -e "xmonad -> " $(dpkg -s xmonad | grep Version:) "${YELLOW}[0.11]${NC}"
+echo -e "xmobar -> " $(dpkg -s xmobar | grep Version:) "${YELLOW}[0.19]${NC}"
 echo -e "zsh -> " $(dpkg -s zsh | grep Version:) "${YELLOW}[5.0]${NC}"
 
 if [ ! -d ~/.vim/bundle ]; 

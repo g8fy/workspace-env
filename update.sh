@@ -15,8 +15,8 @@ if [ ! -f ~/.zshrc  ]; then
 				echo ".zshrc not found!"
 				exit 1
 fi
-if [ ! -f ~/.i3/config ]; then
-				echo ".i3/config not found!"
+if [ ! -f ~/.xmonad/xmonad.hs ]; then
+				echo "xmonad not found!"
 				exit 1
 fi
 
@@ -25,10 +25,11 @@ cp .tmux.conf ~
 cp .Xdefaults ~
 cp .Xresources ~
 cp .xinitrc ~
-sed -i -e 's/%%USER%%/'$USER'/g' .zshrc
+#sed -i -e 's/%%USER%%/'$USER'/g' .zshrc
 cp .zshrc ~
-sed -i -e 's/'$USER'/%%USER%%/g' .zshrc
+#sed -i -e 's/'$USER'/%%USER%%/g' .zshrc
 cp xmonad.hs ~/.xmonad/
+cp .xmobarrc ~
 cp .compton.conf ~
 cp ranger/rc.conf ~/.config/ranger/rc.conf
 

@@ -6,11 +6,33 @@ import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Layout.ResizableTile
 import System.IO
+--import XMonad.Config.Gnome
+import Data.List
 import XMonad.Layout.Spacing
 import XMonad.Actions.GridSelect
 import XMonad.Layout.ShowWName
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.NoBorders
+--import XMonad.Util.NamedScratchpad
+import XMonad.Util.WorkspaceCompare
+
+main = do 
+	wsBar <- spawnPipe myWsBar
+	xmonad $ myConf{
+        workspaces = myWorkspaces
+        , modMask = mod1Mask
+        , terminal = "urxvtc"
+				, borderWidth        = 0
+        , normalBorderColor  = "grey"
+        , focusedBorderColor = "orange" 
+        , layoutHook  = showWName myLayout
+				, logHook     = myLogHook wsBar
+				 } `additionalKeys` myKeys
+
+myConf = defaultConfig {
+  	layoutHook  = showWName myLayout
+  , workspaces = myWorkspaces
+}
 
 myLayout = smartSpacing 8 $ ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirror tiled ||| noBorders Full
   where
@@ -18,6 +40,27 @@ myLayout = smartSpacing 8 $ ResizableTall 1 (3/100) (1/2) [] ||| tiled ||| Mirro
      nmaster = 1
      ratio   = 1/2
      delta   = 3/100
+
+myLogHook h    = dynamicLogWithPP $ wsPP{ ppOutput = hPutStrLn h }
+myWsBar        = "xmobar"
+wsPP = xmobarPP { ppOrder               = \(ws:l:t:_)   -> [ws,t]
+							 , ppCurrent = xmobarColor "#f8f8f8" "DodgerBlue4" . wrap " " " "
+               , ppVisible = xmobarColor "#f8f8f8" "LightSkyBlue4" . wrap " " " "
+               , ppUrgent  = xmobarColor "#f8f8f8" "red4" . wrap " " " " . xmobarStrip
+               , ppLayout  = wrap "" "" . xmobarColor "DarkOrange" "" . wrap " [" "] "
+               , ppTitle   = xmobarColor "#61ce3c" "" . shorten 50
+               , ppWsSep               = " "
+               , ppSep                 = " "
+							 , ppSort =  getSortByTag
+                 }
+        where
+                currentWsIndex w        = case (elemIndex w myWorkspaces) of
+                        Nothing         -> "1"
+                        Just n          -> show (n+1)
+								--ppScreens = do ws <- gets windowset
+                --      let cv = [W.current ws] ++ W.visible ws
+                --      tags = map (\w -> (show $ fromIntegral $ W.screen w) ++ "." ++ (W.tag $ W.workspace w)) cv
+                --        return $ Just ("\0000" ++ concat (intersperse "\0000" tags)) 
 
 gsconfig2 colorizer = (buildDefaultGSConfig colorizer) { gs_cellheight = 90, gs_cellwidth = 160  }
 greenColorizer = colorRangeFromClassName
@@ -29,17 +72,7 @@ greenColorizer = colorRangeFromClassName
    where black = minBound
          white = maxBound
 
-conf = defaultConfig {
-        workspaces = myWorkspaces
-        , modMask = mod1Mask
-        , terminal = "urxvtc"
-				, borderWidth        = 0
-        , normalBorderColor  = "grey"
-        , focusedBorderColor = "orange" 
-        , layoutHook  = showWName myLayout
-				 } `additionalKeys` myKeys
-
-myWorkspaces = withScreens 2 ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces = withScreens 2 ["1[code]","2[web]","3[vm]","4[terminal]","5[tools]","6[graphic]","7[social]","8[video]","9[audio]"]
  
 myKeys =
   		[ ((mod1Mask .|. shiftMask, xK_x), spawn "xscreensaver-command -lock")
@@ -53,7 +86,7 @@ myKeys =
 			[
          -- workspaces are distinct by screen
         ((m .|. mod1Mask, k), windows $ onCurrentScreen f i)
-          | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
+          | (i, k) <- zip (workspaces' myConf) [xK_1 .. xK_9]
           , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
 			]
       ++
@@ -64,5 +97,3 @@ myKeys =
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,1,2]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
 			]
-
-main = xmonad conf
