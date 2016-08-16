@@ -15,16 +15,16 @@ import XMonad.Layout.NoBorders
 import XMonad.Util.WorkspaceCompare
 
 main = do 
-	wsBar <- spawnPipe myWsBar
+--	wsBar <- spawnPipe myWsBar
 	xmonad $ myConf{
         workspaces = myWorkspaces
         , modMask = mod1Mask
-        , terminal = "urxvtc"
+        , terminal = "urxvt"
 				, borderWidth        = 0
         , normalBorderColor  = "grey"
         , focusedBorderColor = "orange" 
         , layoutHook  = avoidStruts $ showWName myLayout
-				, logHook     = myLogHook wsBar
+--				, logHook     = myLogHook wsBar
 				 } `additionalKeys` myKeys
 
 myConf = defaultConfig {

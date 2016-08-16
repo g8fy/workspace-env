@@ -104,3 +104,9 @@ augroup CursorLine
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
 augroup END
+if $TERM =~ '^screen-256color'
+  map [7~ <Home>
+  map [8~ <End>
+  imap [7~ <Home>
+  imap [8~ <End>
+endif
