@@ -41,6 +41,7 @@ Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
