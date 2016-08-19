@@ -42,10 +42,14 @@ Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+set tabstop=2
+set shiftwidth=2
+set expandtab
 let mapleader=","
 syntax on
 set encoding=utf8
@@ -91,6 +95,8 @@ let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_buffer_loading=1
 let g:rubycomplete_include_object=1
 let g:rubycomplete_include_objectspace=1
+let MRU_Auto_Close = 0 
+let MRU_Window_Height = 6
 let g:indentLine_color_term = 236
 augroup FTRuby
   au!
