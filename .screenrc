@@ -1,0 +1,9 @@
+shell "/usr/bin/zsh"
+caption always "%{= Bk} %{+b} @%H %{-} | %-w %{= Kw}%{+bW} [%n %t] %{-}%+w %= %{Ky} | %l | %Y-%m-%d %c:%s "
+screen -t Daemon zsh
+screen -t Vim zsh
+screen -t Terminal zsh
+screen -t Bash zsh
+screen -t MC zsh
+screen -t Git zsh
+select 1
